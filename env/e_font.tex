@@ -1,0 +1,227 @@
+%% use `mtxrun --script font --list --all` to list all fonts
+% zhfonts
+\usemodule[zhfonts][style=rm, size=9pt]
+%\setupzhfonts[feature][onum=yes, pnum=yes]
+
+\setupzhfonts
+[serif]
+[regular=adobesongstd,
+bold=adobeheitistd,
+italic=adobekaitistd,
+bolditalic=adobeheitistd]
+
+\setupzhfonts
+[sans]
+[regular=adobefangsongstd,
+bold=adobeheitistd,
+italic=adobefangsongstd,
+bolditalic=adobeheitistd]
+
+\setupzhfonts
+[mono]
+[regular=adobekaitistd,
+bold=adobeheitistd,
+italic=adobekaitistd,
+bolditalic=adobeheitistd]
+
+\setupzhfonts
+[latin, serif]
+[regular=texgyrepagellaregular,
+bold=texgyrepagellabold,
+italic=texgyrepagellaitalic,
+bolditalic=texgyrepagellabolditalic]
+
+\setupzhfonts
+[latin, mono]
+[regular=texgyrecursorregular,
+bold=texgyrecursorbold,
+italic=texgyrecursoritalic,
+bolditalic=texgyrecursorbolditalic]
+
+\setupzhfonts
+[latin, sans]
+[regular=texgyreherosregular,
+bold=texgyreherosbold,
+italic=texgyreherositalic,
+bolditalic=texgyreherosbolditalic]
+
+%\setupzhfonts[math][roman=]
+
+% 启用中文断行
+\setscript[hanzi]
+\mainlanguage[cn]
+
+% 交互
+%\startallmodes[screen,solution]
+\setupinteraction[
+  state=start,	%start stop
+  focus=standard,
+  %menu	on off
+  %page	yes no
+  %click	yes no
+  %split	yes no
+  %display	new
+  %openaction	reference
+  %closeaction	reference
+  %openpageaction	reference
+  %closepageaction	reference
+  %calculate	name
+  %strut	yes no
+  %width	dimension
+  %height	dimension
+  %depth	dimension
+  style=\ftRef,	%normal bold slanted boldslanted type cap small...command
+  color=black,	%name	link to other page
+  contrastcolor=black,	%name	link to the same page
+  %symbolset	name
+  %title	text
+  %subtitle	text
+  %author	text
+  %date	text
+  %keyword	text
+  %fieldlayer	auto name
+]
+%\stopallmodes
+
+\setuptolerance[horizontal,
+  verystrict, %stretch space verystrict strict tolerant verytolerant
+]
+\setuptolerance[vertical,
+  strict, %stretch space verystrict strict tolerant verytolerant
+]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% font style %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\define\ftEmp{\bf} % emphasize
+\define\ftRef{\it} % reference
+\definetype[capi][ % api
+  %space	on off
+  %option	slanted normal none
+  style=\tt\bf,	%normal bold slanted boldslanted type cap small ... command
+  %color	name
+]
+\define[1]\mapi{%
+\text{\capi{#1}}%
+}
+
+\definetype[capiemp][
+  style=\tt\bf,
+]
+\define[1]\mapiemp{%
+\text{\capiemp{#1}}%
+}
+
+\definetype[carg][ % argument
+  style=\tt\it,
+]
+\define[1]\marg{%
+\text{\carg{#1}}%
+}
+
+\definetype[ctype][ % type
+  style=\tt\tf,
+]
+\define[1]\mtype{%
+\text{\ctype{#1}}%
+}
+
+\definetype[ctypeemp][ % type
+  style=\tt\bf,
+]
+
+\definetype[cenum][ % enumeration
+  style=\tt\tf,
+]
+\define[1]\menum{%
+\text{\cenum{#1}}%
+}
+
+\definetype[cenumemp][ % type
+  style=\tt\bf,
+]
+
+\definetype[cqlf][ % qualifier
+  style=\tt\it,
+]
+\definetype[cqlfemp][
+  style=\tt\bf,
+]
+\definetype[cdrt][ % directive
+  style=\tt\tf,
+]
+\definetype[cdrtemp][
+  style=\tt\bf,
+]
+
+\definetype[cmacro][
+  style=\tt\tf,
+]
+\define[1]\mmacro{%
+\text{\cmacro{#1}}%
+}
+
+\definetype[cmacroemp][
+  style=\tt\bf,
+]
+\definetype[cpragmaemp][
+  style=\tt\bf,
+]
+
+\definetype[cvar][ % variable
+  style=\tt\tf,
+]
+\define[1]\mvar{%
+\text{\cvar{#1}}%
+}
+
+\definetype[ckey][
+  style=\tt\tf,
+]
+
+\definetype[ccmm][ % common
+  style=\tt\tf,
+]
+\define[1]\mcmm{%
+\text{\ccmm{#1}}%
+}
+
+\definetype[ccmmsuffix][
+  style=\tt\it,
+]
+\definetype[cemp][
+  style=\tt\bf,
+]
+\definetype[cempsuffix][
+  style=\tt\bi,
+]
+\definetype[cref][
+  style=\tt\it,
+]
+\definetype[cfmt][% format
+  style=\tt\it,
+]
+\definetype[clext][ % opencl extension
+  style=\rm\bf,
+]
+
+\def\clcmm{\dodoubleempty\doCLCMM}
+\unexpanded\def\doCLCMM[#1][#2]#3{%
+\doifsomethingelse{#2}%
+{\ccmm{#3}\ccmmsuffix{#1}\ccmm{x}\ccmmsuffix{#2}}%
+{\doifsomethingelse{#1}{\ccmm{#3}\ccmmsuffix{#1}}{\ccmm{#3}}}%
+}
+
+\def\clemp{\dodoubleempty\doCLEMP}
+\unexpanded\def\doCLEMP[#1][#2]#3{%
+\ifsecondargument
+\cemp{#3}\cempsuffix{#1}\cemp{x}\cempsuffix{#2}%
+\else
+\iffirstargument
+\cemp{#3}\cempsuffix{#1}%
+\else
+\cemp{#3}%
+\fi
+\fi
+}
+
+\def\cldt{\clcmm}
+\def\cldtemp{\clemp}
+\def\clapi{\clemp}

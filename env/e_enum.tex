@@ -1,0 +1,93 @@
+% no number
+\defineitemgroup[igBase][levels=2]
+\setupitemgroup[igBase]
+[1]
+[packed,joinedup,]
+%standard broad serried packed unpacked stopper joinedup atmargin inmargin autointro loose repeat section paragraph intext random columns
+%standard: default setup
+%n*broad:  extra horizontal white space after symbol
+%n*serried:little horizontal white space after symbol
+%packed:   no whitespace between items
+%stopper:  punctuation after item separator
+%joinedup: no white space before and after itemization
+%atmargin: item separator at the margin
+%inmargin: item separator in margin
+[
+%margin	no standard dimension
+  leftmargin=2em,	%no standard dimension
+%rightmargin	no standard dimension
+%width	dimension
+%distance	dimension
+%factor	number
+%items	number
+%start	number
+  before=,	%command
+  inbetween=,	%command
+  after={\blank[.5ex]},	%command
+%left	text
+%right	text
+%beforehead	command
+%afterhead	command
+%headstyle=boldslanted, %normal bold slanted boldslanted type cap small... command
+%marstyle=boldslanted, %normal bold slanted boldslanted type cap small... command
+%symstyle=boldslanted, %normal bold slanted boldslanted type cap small... command
+%stopper	text
+%n	number
+%symbol	number
+%align	left right normal
+%indentnext	yes no
+]
+\setupitemgroup[igBase][2]
+[packed,joinedup,][
+  leftmargin=4em,	%no standard dimension
+  before=,	%command
+  inbetween=,	%command
+  after=,	%command
+]
+\setupitemgroup[igBase][1][1] % 枚举的标识必须单独定义，否则无效，可选的
+\setupitemgroup[igBase][2][2]
+%m	A numbered list, with lowercase (“medieval”, aka “oldstyle”) numbers.
+%1 … 8	Different kinds of bullets. All items get the same symbol.
+%a	Items are numbered a., b., c., …
+%A	Items are numbered A., B., C., …
+%AK	Items are numbered A., B., C., …, in small caps.
+%r	Items are numbered in lowercase Roman numerals.
+%R	Items are numbered in uppercase Roman numerals.
+%KR	Items are numbered in uppercase Roman numerals, small caps style.
+
+
+% with number
+\defineitemgroup[igNum][levels=1]
+\setupitemgroup[igNum]
+[each]
+[packed,joinedup,]
+[
+  leftmargin=2em,	%no standard dimension
+  before=,	%command
+  inbetween=,	%command
+  after={\blank[.5ex]},	%command
+]
+\setupitemgroup[igNum][1][n]
+
+% big item
+\defineitemgroup[igBig][levels=2]
+\setupitemgroup[igBig][1]
+[packed,joinedup,]
+[
+  leftmargin=0em,
+  before=,
+  inbetween=,
+  after={\blank[.5ex]},
+  width=2em,
+]
+\setupitemgroup[igBig][1][a]
+\setupitemgroup[igBig][2]
+[packed,joinedup,]
+[
+  leftmargin=2em,
+  before=,
+  inbetween=,
+  after=,
+  width=2em,
+]
+\setupitemgroup[igBig][2][1]

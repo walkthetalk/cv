@@ -1,0 +1,20 @@
+% the textbackgournd will extends to the page boundary,
+% which include the footnote and not as expected
+% workaround is:
+\chardef\kindofpagetextareas\plusone
+
+% the footnote can't process linebreak correctly
+% workaround is:
+\let\stdfootnote\footnote
+\def\footnote#1{%
+\stdfootnote{\setscript[hanzi]#1}%
+}
+% \postponenotes\footnote{...}
+
+% 中文caption第一行字符中间有空格
+% workaround is:
+\setupcaptions[align={broad,middle}]
+
+\define[1]\todo{#1}
+%\define[1]\todo{\error}
+\define[1]\problem{}
