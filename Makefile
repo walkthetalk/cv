@@ -25,4 +25,4 @@ clean:
 
 $(pdf_name).pdf: $(tex_deps) $(eps_files)
 	@echo [gen] $@
-	@context --git --purge --environment=env_cmm --path=$(dir_main)/env/ --result=$(pdf_name).pdf $(tex_name).tex; $(call clean_misc)
+	@context --purge --environment=env_cmm --path=$(dir_main)/env/ --result=$(pdf_name).pdf $(tex_name).tex; $(call clean_misc)

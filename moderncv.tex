@@ -5,6 +5,7 @@
 
 \definefont[Dings][name:MarVoSym]
 
+%\if 0
 \setuplayout
   [backspace=.3\paperwidth,
     leftmargin=0.2\paperwidth,
@@ -12,6 +13,7 @@
     width=0.59\paperwidth,
     topspace=0.05\paperheight,
   ]
+%\fi
 
 % Colors
 \definecolor[lightgray][s=0.75]
@@ -34,7 +36,7 @@
   [color=gray,
     style=\ssb,
     command=\MySecion,
-    after=\vskip1em
+    after=\vskip1em,
   ]
 
 \setuphead
@@ -61,21 +63,31 @@
   ]
 
 % -------------------- Macros -------------------->
+
 % Variables
+\useURL[github][https://github.com/downloads/walkthetalk/]
+\useURL[wordpress][https://niqingliang2003.wordpress.com/]
+\useURL[openclspeczh][https://github.com/downloads/walkthetalk/contextstudy/opencl-spec-zh-beta2.pdf]
+\useURL[srd][https://niqingliang2003.files.wordpress.com/2011/09/prd-srd1.pdf]
+\useURL[libem][https://github.com/walkthetalk/libem]
+\useURL[mymail][mailto:niqingliang2003@tom.com][][niqingliang2003@tom.com]
+
 \def\entryspace{0.5em}
-\def\cvname{Job Looser}
-\def\cvalias{Alias}
-\def\cvaddress{Jedi Academy}
-\def\cvpersonalinfo{Outter rim, Galaxy}
-\def\cvbirthday{1999.99}
-\def\email{foobar@example.org}
+\def\cvname{倪庆亮}
+\def\cvalias{Y\'i Q\`ing Li\`ang}
+\def\cvaddress{江苏省南京市浦口区}
+\def\cvpersonalinfo{男，汉族，群众}
+\def\cvbirthday{1982 年 10 月}
+\def\cvgithub{https://github.com/downloads/walkthetalk/}
+\def\cvhomepage{https://niqingliang2003.wordpress.com/}
+\def\email{niqingliang2003@tom.com}
+\def\tel{+8615996246393}
+
+\define[6]\cvworkexp{
+\cventry{#1}{{\bf #2 \hskip 1em #3 \hskip 1em #4 \hskip 1em #5}\par\parindent2em #6}
+}
 
 % Procs
-\def\cvinmargin#1
-  {\hskip \dimexpr-\leftmarginwidth-\leftmargindistance\relax
-    \hbox to \leftmarginwidth{\hfill
-      #1} % \hskip\leftmargindistance
-}
 
 \def\entryend{\par\vskip \entryspace}
 
