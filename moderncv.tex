@@ -5,15 +5,23 @@
 
 \definefont[Dings][name:MarVoSym]
 
-%\if 0
-\setuplayout
-  [backspace=.3\paperwidth,
+\setuplayout[
+  top=20mm,
+    topdistance=2mm,
+      header=\bodyfontsize,
+        headerdistance=5mm,
+        footerdistance=5mm,
+      footer=\bodyfontsize,
+    bottomdistance=2mm,
+  bottom=20mm,
+  topspace=\dimexpr(\topheight + \topdistance),
+  bottomspace=\dimexpr(\bottomheight + \bottomdistance),
+  backspace=.3\paperwidth,
     leftmargin=0.2\paperwidth,
     rightmargin=0cm,
     width=0.59\paperwidth,
-    topspace=0.05\paperheight,
-  ]
-%\fi
+  topspace=0.05\paperheight
+]
 
 % Colors
 \definecolor[lightgray][s=0.75]
