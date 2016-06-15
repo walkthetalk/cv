@@ -1,10 +1,5 @@
 ﻿% Author: Corsair <echo joypz_jvyzhpy-@thps_jvt | tr h-z\-_@ a-s@.g>
 
-% Font required: MarVoSym
-% http://www.marvosym.com/
-
-\definefont[Dings][name:MarVoSym]
-
 \setuplayout[
   top=20mm,
     topdistance=2mm,
@@ -21,6 +16,17 @@
     rightmargin=0cm,
     width=0.59\paperwidth,
   topspace=0.05\paperheight
+]
+
+\setupinteraction[
+  state=start,
+  color=blue,
+  contrastcolor=blue,
+  style=bold,
+  title={簡歷},
+  author={倪慶亮},
+  subtitle={簡歷},
+  keyword=簡歷 倪慶亮,
 ]
 
 % Colors
@@ -73,12 +79,21 @@
 % -------------------- Macros -------------------->
 
 % Variables
+\define[1]\GOTOURL{%
+\goto{#1}[url(#1)]%
+}
+
+\define[1]\GOTOMAIL{%
+\goto{#1}[url(mailto:#1)]
+}
+
 \useURL[github][https://github.com/downloads/walkthetalk/]
 \useURL[wordpress][https://niqingliang2003.wordpress.com/]
+\useURL[linkedin][https://www.linkedin.com/in/yi-qingliang-62a026aa]
+\useURL[tom][mailto:niqingliang2003@tom.com][][niqingliang2003@tom.com]
 \useURL[openclspeczh][https://github.com/downloads/walkthetalk/contextstudy/opencl-spec-zh-beta2.pdf]
 \useURL[srd][https://niqingliang2003.files.wordpress.com/2011/09/prd-srd1.pdf]
 \useURL[libem][https://github.com/walkthetalk/libem]
-\useURL[mymail][mailto:niqingliang2003@tom.com][][niqingliang2003@tom.com]
 
 \def\entryspace{0.5em}
 \def\cvname{倪庆亮}
@@ -86,9 +101,6 @@
 \def\cvaddress{江苏省南京市浦口区}
 \def\cvpersonalinfo{男，汉族，群众}
 \def\cvbirthday{1982 年 10 月}
-\def\cvgithub{https://github.com/downloads/walkthetalk/}
-\def\cvhomepage{https://niqingliang2003.wordpress.com/}
-\def\email{niqingliang2003@tom.com}
 \def\tel{+8615996246393}
 
 \define[6]\cvworkexp{
@@ -111,20 +123,21 @@
 \define[3]\cventrywithtitle
 {{\margintext{#1} {\it #2} \crlf #3 \entryend}}
 
-\def\placehead
+\define\placehead
   {\hbox to \hsize
     {\vbox{\hbox{\switchtobodyfont[28pt]\cvname}
         \vskip4mm
         \hbox{\ssb \color[gray]{\cvalias}}}
       \hfill
-      \vbox{{\color[darkgray]{\itx
+      \vbox{{\color[darkgray]{\it
             \hbox{\cvaddress}
             \hbox{\cvpersonalinfo}
             \hbox{\cvbirthday}
-            \hbox{\cvgithub}
-            \hbox{\cvhomepage}
-            \hbox{{\Dings B} \email}
-            \hbox{{\Dings T} \tel}
+            \hbox{\GOTOURL{https://github.com/downloads/walkthetalk/}}
+            \hbox{\GOTOURL{https://www.linkedin.com/in/yi-qingliang-62a026aa}}
+            \hbox{\GOTOURL{https://niqingliang2003.wordpress.com/}}
+            \hbox{\externalfigure[fig/emoji_u1f4e7.svg][width=1em] \GOTOMAIL{niqingliang2003@gmail.com}}
+            \hbox{\externalfigure[fig/emoji_u260e.svg][width=1em] \tel}
     }}}}
     \vskip1.2cm
   }
