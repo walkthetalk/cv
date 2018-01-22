@@ -1,0 +1,117 @@
+
+\input ./moderncv
+% ==================== Main text ====================>
+\starttext
+\placehead
+
+% self profile
+\subject{Self Assessment}
+More than 12 years experience worked in product R&D department of Ether / SDH transmission equipment.
+Very adaptable and Good at leaning.
+Diligent; with sureness; responsible; everytime fulfil my duties to my own work.
+Patient; have holding capacity to pressure and setback.
+
+Experienced on GNU/Linux, from bootloader, kernel/driver, to application, all are covered.
+Experienced on FPGA development, focused on Image processing and Motor control.
+
+% work experience
+\subject{Work Experience}
+
+\cvworkexp{2012 ~ today}{Nanjing Jilong Optical Communication Co., Ltd}{R&D}{Nanjing}{Manager}{
+Build up Tech Platform based on GNU/Linux;
+
+Responsible for new staff technical training;
+
+Presided over the design and development of the next generation splicing control system.
+Through motor controlling, image processing, arc controlling,
+implement fusion splicing, heating, arc adjustment, system testing, dust checking, auto focusing, etc.
+
+tech involved: state machine, socket communication, json message, xml configuration, image processing, video recording, etc.
+FPGA is responsible for image sampling, format converting, image scaling, image overlaying, motor controlling, etc.
+
+Dev Env：Xilinx Vivado, Archlinux, gitlab, poky(yocto), opencv, boost, {\TeX}live, Qt, maxima, android studio.
+
+Programming Language: verilog, python, Makefile, Con\TeX t, C++11, C, bash, lua
+
+Hardware Platform: arm, s3c6410, zynq7020
+}
+
+\cvworkexp{2010 ～ 2012}{Insigma}{Iot BU}{Hangzhou}{}{
+\startigBase
+\item Responsible for pre-research and construction of software department infrastructure;
+\item Participate in the overall design of the software platform;
+\item Responsible for the design and development of the low-level software platform;
+\item Research and use of open source software / projects, design and development of related supporting tools;
+\item Responsible for some recruitment and technical training;
+\item As SA735 product development representative, responsible for its software development and release management;
+\item Participate SN6500 product software design and development;
+\item Responsible for the data center's preliminary research work, including hardware selection, distributed file system, distributed database.
+\stopigBase
+
+Development environment is mainly Linux and C/C++.
+Development work including but not limited to:
+\startigBase
+\item Embedded OS build system optimus (based on yocto),
+Mainly in order to solve the problem of product differentiation, one platform supporting multiple products.
+\item GUI compiling tool：Tai Chi diagram (based on wxPython),
+providing a GUI to display dependencies between packages,
+and executing recursive compilation.
+\item Dual redundancy backup system design and development (including supporting tool).
+\item Process Execution Model,
+Driver framework (mainly used for seamless switching between the user mode and kernel mode)
+Process and equipment management module,
+FPGAs/CPLDs Loading module.
+\item mm/md used under GNU/Linux (same command used in uboot).
+\item scripts used to generate UBIFS image.
+\item p2020/mpc8315 (freescale/powerpc）related bsp dev.
+\item \dots
+\stopigBase
+}
+
+\cvworkexp{2009 ～ 2010}{NSN}{NGMGW}{Hangzhou}{team leader of TDM group}{
+Responsible for TDM related service, including business needs analysis,
+writing related documents and software design and development, e.g.
+SDH/PDH configuration management, clock management, and the corresponding redundancy, etc.
+}
+
+\cvworkexp{2007 ～ 2009}{UT Starcom}{ONS}{Hangzhou}{SW engineer}{
+mainly woring for product NR40K:
+\startigBase
+\item low-order XC chip research and development;
+\item development of XC board, hybrid fiber board;
+\item development of hot-backup, SSF, MAPS;
+\item development and maintenance of: configuration management, algorithm module;
+\item interrupt management, timer managment;
+\stopigBase
+
+Development environment: windows/vxworks, C/C++.
+}
+
+\cvworkexp{2005 ～ 2006}{HarbourNetworks}{R&D switch product line}{Beijing}{SW engineer}{
+mainly working on product BH68 series switcher:
+
+Responsible for development of QoS/ACL, including maintenance of application/driver,
+new requirement of MassACL, IPv6, fucntion testing of new chip, firebolt/easyridar from broadcom.
+
+Responsible for development and maintenance of DHCP module.
+
+Development environment: windows/vxworks, C/C++.
+}
+
+% education
+\subject{Education}
+
+\cventry{2004 ～ 2007}{
+{\bf Master} \hskip 1em {Xidian University} \hskip 1em {Xi'an} \hskip 1em {Computer science and technology}
+}
+
+\cventry{2000 ～ 2004}{
+{\bf Bachelor} \hskip 1em {Xidian University} \hskip 1em {Xi'an} \hskip 1em {Computer science and technology}
+}
+
+% language
+\subject{Language}
+
+\cventry{English}{CET-6}
+
+\stoptext

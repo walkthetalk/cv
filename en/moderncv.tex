@@ -1,0 +1,143 @@
+﻿% Author: Corsair <echo joypz_jvyzhpy-@thps_jvt | tr h-z\-_@ a-s@.g>
+
+\setuplayout[
+  top=20mm,
+    topdistance=2mm,
+      header=\bodyfontsize,
+        headerdistance=5mm,
+        footerdistance=5mm,
+      footer=\bodyfontsize,
+    bottomdistance=2mm,
+  bottom=20mm,
+  topspace=\dimexpr(\topheight + \topdistance),
+  bottomspace=\dimexpr(\bottomheight + \bottomdistance),
+  backspace=.3\paperwidth,
+    leftmargin=0.2\paperwidth,
+    rightmargin=0cm,
+    width=0.59\paperwidth,
+  topspace=0.05\paperheight
+]
+
+\setupinteraction[
+  state=start,
+  color=blue,
+  contrastcolor=blue,
+  style=bold,
+  title={簡歷},
+  author={倪慶亮},
+  subtitle={簡歷},
+  keyword=簡歷 倪慶亮,
+]
+
+% Colors
+\definecolor[lightgray][s=0.75]
+\definecolor[gray][s=0.5]
+\definecolor[darkgray][s=0.25]
+\setupcolors[rgb=no,cmyk=yes,spot=yes,state=start]
+
+% Algrithm
+\setupalign[hanging]
+\setuptolerance[horizontal, stretch]
+
+% Setups
+\define[2]\MySecion
+       {\hskip \dimexpr-\leftmarginwidth-\leftmargindistance\relax
+         \hbox to \leftmarginwidth{\hfill
+           \blackrule[width=\leftmarginwidth, height=2mm, color=lightgray]}\hskip\leftmargindistance #1 #2
+       }
+\setuphead
+  [subject]
+  [color=gray,
+    style=\ssb,
+    command=\MySecion,
+    after=\vskip1em,
+  ]
+
+\setuphead
+  [subsubject]
+  [color=gray,
+    style=\ssa,
+    before=\vskip -0em,
+    after=\vskip 0.5em
+  ]
+
+\indenting[no]
+% \setupwhitespace[0.3em]
+
+\setupinmargin[style=\tt\tf]
+
+\setupinterlinespace[line=1.25em]
+
+\setupitemize[1][packed, inmargin]
+\setupindenting[medium]
+\setuppagenumbering
+  [alternative=singlesided,
+    style=,
+    location={footer},
+  ]
+
+% -------------------- Macros -------------------->
+
+% Variables
+\define[1]\GOTOURL{%
+\goto{#1}[url(#1)]%
+}
+
+\define[1]\GOTOMAIL{%
+\goto{#1}[url(mailto:#1)]
+}
+
+\useURL[github][https://github.com/downloads/walkthetalk/]
+\useURL[wordpress][https://niqingliang2003.wordpress.com/]
+\useURL[linkedin][https://www.linkedin.com/in/yi-qingliang-62a026aa]
+\useURL[tom][mailto:niqingliang2003@tom.com][][niqingliang2003@tom.com]
+\useURL[openclspeczh][https://github.com/downloads/walkthetalk/contextstudy/opencl-spec-zh-beta2.pdf]
+\useURL[srd][https://niqingliang2003.files.wordpress.com/2011/09/prd-srd1.pdf]
+\useURL[libem][https://github.com/walkthetalk/libem]
+
+\def\entryspace{0.5em}
+\def\cvname{倪庆亮}
+\def\cvalias{Y\'i Q\`ing Li\`ang}
+\def\cvaddress{Pukou District, Nanjing City, Jiangsu Province}
+\def\cvpersonalinfo{Male, Han}
+\def\cvbirthday{1982.10}
+\def\tel{+8615996246393}
+
+\define[6]\cvworkexp{
+\cventry{#1}{{\bf #2 \hskip 1em #3 \hskip 1em #4 \hskip 1em #5}\par\parindent2em #6}
+}
+
+% Procs
+
+\def\entryend{\par\vskip \entryspace}
+
+\define[2]\cventry
+{{\margintext{#1} #2 \entryend}}
+
+\define[2]\cvementry
+{\margintext{#1} {\it #2} \entryend}
+
+\define[2]\cvcompactentry
+{{\margintext{#1} #2 \par}}
+
+\define[3]\cventrywithtitle
+{{\margintext{#1} {\it #2} \crlf #3 \entryend}}
+
+\define\placehead
+  {\hbox to \hsize
+    {\vbox{\hbox{\switchtobodyfont[28pt]\cvname}
+        \vskip4mm
+        \hbox{\ssb \color[gray]{\cvalias}}}
+      \hfill
+      \vbox{{\color[darkgray]{\it
+            \hbox{\cvaddress}
+            \hbox{\cvpersonalinfo}
+            \hbox{\cvbirthday}
+            \hbox{\GOTOURL{https://github.com/downloads/walkthetalk/}}
+            \hbox{\GOTOURL{https://www.linkedin.com/in/yi-qingliang-62a026aa}}
+            \hbox{\GOTOURL{https://niqingliang2003.wordpress.com/}}
+            \hbox{\externalfigure[fig/emoji_u1f4e7.svg][width=1em] \GOTOMAIL{niqingliang2003@gmail.com}}
+            \hbox{\externalfigure[fig/emoji_u260e.svg][width=1em] \tel}
+    }}}}
+    \vskip1.2cm
+  }
