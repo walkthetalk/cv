@@ -12,37 +12,47 @@
 
 软件开发工作均与 Linux 相关；从 bootloader、内核、驱动到上层应用都有所涉及；
 涉及交换机、光传输、仪器仪表等领域。
-FPGA 开发工作主要设计图像处理和电机控制两方面内容。
+FPGA 开发工作主要涉及图像处理和电机控制两方面内容。
 
 % work experience
 \subject{工作经历}
 
 \cvworkexp{2012 ～ 今}{南京吉隆光纤通信股份有限公司}{研发部}{南京}{南京研发部经理}{
-负责整个公司 Linux 技术平台的搭建；
 
-负责新员工技术培训；
 
-主持设计开发下一代熔接机控制系统。
+负责整个公司技术平台的搭建
 
-通过电机控制、图像处理、电弧控制等，实现熔接、加热、放电校正、电机测试、灰尘检查、自动调焦等功能。
+设计开发下一代单纤熔接机、带纤机、双芯皮线机等
 
-涉及到的技术：状态机（用于熔接、加热等功能的流程控制）、
-socket通信（用于层间通信）、
-zeromsg（用于数据的序列化反序列化）、
-xml（用于配置文件）、
-图像处理（用于光纤定位、缺陷检测、灰尘检查、边缘检测、自动调焦）、
-视频编码录制（vp8）等。
+设计开发熔接机管控系统
 
-FPGA 主要负责电机控制，图像采集、格式转换、图像缩放、图层合成等。
+其中开发工作包括但不限于以下内容：
+\startigBase
+\item bootloader：（uboot+barebox) 包括sd卡、nand、lcd等外设驱动（C + assembly）以及相关移植工作
+\item Linux kernel：包括 sd 卡、 nand、 lcd、 i2c、 spi、 cmos、电机等驱动开发（C） ，内核裁剪和移植
+\item Linux 开发环境：基于 openembedded，包括环境搭建、 bug调测等 (gcc + gdb + C + python + bash)
+\item Linux 操作系统：包括各软件包的补丁、调测、打包，并解决编译时遇到得各种问题，其中有 gcc、Qt4、Qt5、postgresql、lua、potrace、ttf、libvpx、opencv、gsl、libpng 等
+\item 嵌入式实时操作系统： freertos
+\item FPGA：axi stream 相关generator、broadcaster、VDMA、scaler、filter、采集、blender，图像处理(业务相关)、SPI client、LCD 控制、电机控制、PWM、中断系统等、register file generator (python script)
 
-开发环境：xilinx Vivado + Archlinux + gitlab + poky（yocto） + opencv + libpng + boost + Texlive + Qt5 + maxima + android studio
+\item 业务软件：
+\startigBase
+\item 系统架构设计、开发(epoll + websocket)，包括一些系统级功能，如冗余备份、自检、同时支持多种机型、器件，对脚本语言的支持等、密码管理系统、业务状态机(boost/statechart)；
+\item 图像处理、电机控制等关键模块设计开发，其中图像处理相关的有灰尘检查、实时缺陷检测、光纤定位、光纤识别等。
+其中光纤识别已可正常工作，目前在试验通用算法（如SVM）和工具（如tensorflow）进行改善。
+\item UI框架 unicorn 的设计开发，基于Qt5 qml
+\item 消息通信中间件 jmsg 得设计开发，支持 binary、json、sql 等几种类型
+\item 数据库：Temporal Table、Paging、Notify、...
+\item 相关工具的集成：lua，主要用于原型阶段修改一些参数、函数。
+\stopigBase
 
-编程语言：verilog、 python、 Makefile、 Con\TeX t、 C++11、 C、 bash、 lua
-
-硬件平台： arm s3c6410 zynq7020
-
-目前arm11平台已基本稳定，用于各系列单纤机、带纤机。
-正在开发 xilinx zynq 平台、特种光纤熔接机、android 端 app 等。
+\item 工具：
+\startigBase
+\item 工具： gitlab、tikiwiki、maxima、geogebra、Xilinx ISE、Xilinx Vivado
+\item 编程语言：assemble、C、C++11、rust、python、bash、lua、tcl
+\item 相关库： Qt、OpenCV、libpng、libgsl、libpqxx、rapidjson、boost、libvpx
+\stopigBase
+\stopigBase
 }
 
 \cvworkexp{2010 ～ 2012}{浙大网新}{物联网事业部}{杭州}{}{
