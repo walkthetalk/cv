@@ -22,23 +22,16 @@ FPGA 开发工作主要涉及图像处理和电机控制两方面内容。
 
 负责整个公司技术平台的搭建
 
-设计开发下一代单纤熔接机、带纤机、双芯皮线机等
+设计开发单纤熔接机、带纤机、双芯皮线机、特种光纤熔接机、热剥钳等
 
-设计开发熔接机管控系统
+设计开发熔接机管控系统（python + django)
 
 其中开发工作包括但不限于以下内容：
 \startigBase
-\item bootloader：（uboot+barebox) 包括sd卡、nand、lcd等外设驱动（C + assembly）以及相关移植工作
-\item Linux kernel：包括 sd 卡、 nand、 lcd、 i2c、 spi、 cmos、电机等驱动开发（C） ，同时支持整合编译和独立编译，内核裁剪和移植
-\item Linux 开发环境：基于 openembedded，包括环境搭建、 bug调测等 (gcc + gdb + C + python + bash)
-\item Linux 操作系统：包括各软件包的补丁、调测、打包，并解决编译时遇到得各种问题，其中有 gcc、Qt4、Qt5、postgresql、lua、potrace、ttf、libvpx、opencv、gsl、libpng 等
-\item FPGA：axi stream 相关generator、broadcaster、VDMA、scaler、filter、采集、blender，图像处理(业务相关)、SPI client、LCD 控制、电机控制、PWM、中断系统等、register file generator (python script)
-
 \item 业务软件：
 \startigBase
 \item 系统架构设计、开发(epoll + websocket)，包括一些系统级功能，如冗余备份、自检、同时支持多种机型、器件，对脚本语言的支持等、密码管理系统、业务状态机(boost/statechart)；
-\item 图像处理、电机控制等关键模块设计开发，其中图像处理相关的有灰尘检查、实时缺陷检测、光纤定位、光纤识别等。
-其中光纤识别已可正常工作，目前在试验通用算法（如SVM）和工具（如tensorflow）进行改善。
+\item 图像处理、电机控制等关键模块设计开发，其中图像处理相关的有灰尘检查、实时缺陷检测、光纤定位、光纤识别分类、调焦等。
 \item UI框架 unicorn 的设计开发，基于Qt5 qml，主要功能包括 i18n、 data/feature dependency、 MVC-based preference tree、 color schema、 auth management...
 \item 消息通信中间件 jmsg 得设计开发，支持 binary、json、sql 等几种类型
 \item 数据库：Temporal Table、Paging、Notify、...
@@ -46,11 +39,17 @@ FPGA 开发工作主要涉及图像处理和电机控制两方面内容。
 \item 相关工具的集成：lua，主要用于原型阶段修改一些参数、函数。
 \stopigBase
 
+\item bootloader：（uboot+barebox) 包括sd卡、nand、lcd等外设驱动（C + assembly）以及相关移植工作
+\item Linux kernel：包括 sd 卡、 nand、 lcd、 i2c、 spi、 cmos、电机等驱动开发（C） ，同时支持整合编译和独立编译，内核裁剪和移植
+\item Linux 开发环境：基于 openembedded，包括环境搭建、 bug调测等 (gcc + gdb + C + python + bash)
+\item Linux 操作系统：包括各软件包的补丁、调测、打包，并解决编译时遇到得各种问题，其中有 gcc、 Qt5、 postgresql、 lua、 potrace、 ttf、 libvpx、 opencv、 gsl、 libpng 等
+\item FPGA： axi stream 相关 generator、 broadcaster、 VDMA、 scaler、 filter、采集、 blender，图像处理(业务相关)、 SPI client、 LCD 控制、电机控制、 PWM、中断系统等、 register file generator (python script)
+
 \item 工具：
 \startigBase
-\item 工具： gitlab、tikiwiki、maxima (数学精确计算)、geogebra (3D 建模)、Xilinx ISE、Xilinx Vivado、 freertos
-\item 编程语言：assemble、C、C++11、rust、python、bash、lua、tcl
-\item 相关库： Qt、OpenCV、libpng、libgsl、libpqxx、rapidjson、boost、libvpx
+\item 工具： gitlab、tikiwiki、maxima (数学精确计算)、geogebra (3D 建模)、Xilinx ISE、Xilinx Vivado、 poky、 freertos
+\item 编程语言：assemble、 C、 C++11、 python、 bash、 lua、 tcl
+\item 相关库： Qt、 OpenCV、 libpng、 libgsl、 libpqxx、 rapidjson、 boost、 libvpx
 \stopigBase
 \stopigBase
 }
